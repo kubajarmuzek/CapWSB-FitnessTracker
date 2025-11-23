@@ -16,14 +16,13 @@ public class UserEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long id;
 
-    // FK user_id → users.id
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // FK event_id → event.id
     @ManyToOne(optional = false)
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;

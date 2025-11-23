@@ -9,7 +9,7 @@ import pl.wsb.fitnesstracker.training.api.Training;
 import java.util.Date;
 
 @Entity
-@Table(name = "workout_session")   // odpowiada tabeli Workout_Session
+@Table(name = "workout_session")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,9 +17,9 @@ public class WorkoutSession {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long id;
 
-    // FK training_id → trainings.id
     @ManyToOne(optional = false)
     @JoinColumn(name = "training_id", nullable = false)
     private Training training;

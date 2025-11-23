@@ -11,7 +11,7 @@ import pl.wsb.fitnesstracker.user.api.User;
 import java.util.Date;
 
 @Entity
-@Table(name = "trainings")   // tabela Trainings z diagramu
+@Table(name = "trainings")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
@@ -19,9 +19,9 @@ public class Training {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long id;
 
-    // FK do users.id
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
