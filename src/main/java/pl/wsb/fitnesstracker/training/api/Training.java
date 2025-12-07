@@ -19,29 +19,26 @@ public class Training {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
     private Long id;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "startTime", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "start_time", nullable = false)
     private Date startTime;
 
-    @Column(name = "endTime", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "end_time", nullable = false)
     private Date endTime;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "activityType", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "activity_type", nullable = false)
     private ActivityType activityType;
 
-    @Column(name = "distance", nullable = false)
+    @Column(name = "distance")
     private double distance;
 
-    @Column(name = "averageSpeed", nullable = false)
+    @Column(name = "average_speed")
     private double averageSpeed;
 
     public Training(
@@ -58,4 +55,5 @@ public class Training {
         this.distance = distance;
         this.averageSpeed = averageSpeed;
     }
+
 }
