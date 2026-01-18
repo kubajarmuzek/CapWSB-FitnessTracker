@@ -37,10 +37,10 @@ public class User {
             final LocalDate birthdate,
             final String email) {
 
-        this.birthdate = birthdate;
-        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.email = email;
     }
 
     @Nullable
@@ -84,4 +84,3 @@ public class User {
         this.email = email;
     }
 }
-
